@@ -163,7 +163,7 @@ const NotiCard = ({ title, description, urlToImage, content, url }) => {
             <IconButton
               aria-label="share"
               onMouseOver={() => {
-                alert("Se te va a redirigir a whatsapp");
+                alert("¡Comparte con tus amigos! Si clickeas aquí te va a redirigir a whatsapp");
               }}
               onClick={() => {
                 shareOnWhatsApp(title, description, url);
