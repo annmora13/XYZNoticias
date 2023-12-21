@@ -52,7 +52,7 @@ export default function FilterCategories({ setUpdatedNews }) {
 
   return (
     <div>
-      <FormControl sx={{ m: 1, width: 300 }}>
+      <FormControl sx={{ display: 'flex', m: 1, width: 300 }}>
         <InputLabel id="multiple-category-label">Categoría</InputLabel>
         <Select
           labelId="multiple-category-label"

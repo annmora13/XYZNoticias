@@ -1,18 +1,7 @@
 import * as React from "react";
-import {
-  AppBar,
-  Box,
-  Button,
-  IconButton,
-  InputBase,
-  Toolbar,
-  Typography,
-  alpha,
-  styled,
-} from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu";
+import { Box, Button, InputBase, alpha, styled } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
-import { getNewsCategory, getNewsTitle } from "../API";
+import { getNewsTitle } from "../API";
 import { useState } from "react";
 
 const Search = styled("div")(({ theme }) => ({
@@ -66,7 +55,7 @@ export default function SearchAppBar({ setUpdatedNews }) {
   };
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ display: 'flex', gap: '16px', flexGrow: 1, width: 300, }}>
       <Search>
         <SearchIconWrapper>
           <SearchIcon />

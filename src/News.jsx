@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import {
   Avatar,
   Box,
@@ -20,8 +20,6 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import header from "./img/header.png";
 
-const image = [{ imgPath: "./img/header", title: "XYZ Noticias" }];
-
 function Header() {
   const imageProps = {
     src: header,
@@ -31,8 +29,9 @@ function Header() {
     alignitems: "center",
     justifyContent: "center",
     margin: "0",
-    width: "1000px",
-    height: "300px",
+    width: "100%",
+    height: "auto",
+    maxWidth: "100%",
   };
 
   return (
@@ -81,13 +80,12 @@ const NotiCard = ({ title, description, urlToImage, content, url }) => {
     }
   };
 
-  const shareOnWhatsApp = (title, description) => {
+  const shareOnWhatsApp = (title, description, url) => {
     try {
-      const textToShare = `${title}\n${description}`;
+      const textToShare = `${title}\n${description}\n${url}`;
       const encodedText = encodeURIComponent(textToShare);
       const whatsappURI = `whatsapp://send?text=${encodedText}`;
       window.location.href = whatsappURI;
-
       console.log("Compartiendo noticia por WhatsApp:", textToShare);
     } catch (error) {
       console.error("Error al compartir la noticia por WhatsApp:", error);
@@ -164,8 +162,11 @@ const NotiCard = ({ title, description, urlToImage, content, url }) => {
 
             <IconButton
               aria-label="share"
+              onMouseOver={() => {
+                alert("Se te va a redirigir a whatsapp");
+              }}
               onClick={() => {
-                shareOnWhatsApp(title, description);
+                shareOnWhatsApp(title, description, url);
               }}
             >
               <ShareIcon />
